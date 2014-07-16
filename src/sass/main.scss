@@ -1,0 +1,50 @@
+
+// --------------------------------------
+// Base files (common for every project)
+// --------------------------------------
+
+// values commonly needed for every project
+@import "base/variables";
+// Reset and rhythms 
+@import "base/normalize";
+@import "base/grid";
+@import "base/spaces";
+// Other, helpers...you end up needing in every project
+@import "base/helpers/fonts";
+@import "base/helpers/media-queries";
+@import "base/helpers/z-index";
+@import "base/helpers/mixins";
+@import "base/helpers/assorted";
+	
+
+// --------------------------------------
+// Application/Layout specific files 
+// --------------------------------------
+@import "application/variables";
+@import "application/layout";
+@import "application/typography";
+
+// Modularized in partials
+@import "application/components/buttons";
+@import "application/components/inputs";
+
+@import "application/modules/profile";
+@import "application/modules/dashboard";
+
+@import "application/responsive/desktop";
+@import "application/responsive/tablet";
+@import "application/responsive/mobile";
+
+// --------------------------------------
+// Styles/Components you share between projects 
+// --------------------------------------
+
+@import "shared/popup";
+@import "shared/markdown";
+
+// --------------------------------------
+// Other vendor provided components
+// --------------------------------------
+
+//@import "vendor/ad";
+
