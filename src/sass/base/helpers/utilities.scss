@@ -26,3 +26,23 @@
 		}
 	}
 }
+
+// Pseudo-generators
+%pseudos {
+	display: block;
+	content: '';
+	position: absolute;
+}
+
+@mixin pseudo-el(
+	$el,
+	$el-width: null,
+	$el-height: null
+	){
+		&:#{$el}{
+			@extend %pseudos;
+			width: $el-width;
+			height: $el-height;
+			@content; // to allow more styling attributes...
+		}
+}
