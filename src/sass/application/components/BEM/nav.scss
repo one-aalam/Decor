@@ -1,3 +1,7 @@
+// BEM is a pretty subjective way of thinking, so there's no need
+// of using it for everything. Rather use it for components which
+// have variations, sub-elements and change states
+
 // Block: Navigation
 %nav-item-disp{
 	display: inline-block;
