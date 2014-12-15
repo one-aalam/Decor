@@ -1,8 +1,16 @@
-body{
-	font-size: 1em;
-	line-height: 1.4em;
-}
-
 *{
 	@include bs;
 }
+
+body{
+	font-size: $base--font-size;
+	line-height: ($base--line/$base--font-size);
+}
+// Sample usage...
+h1{
+	 font-weight: $font-weight--light;
+	 font-size: em(42px); // 42px is new "context" 
+	 line-height: (46px/42px); // Target/context, Mix and match...
+	 margin-bottom: em(70px/42px); 
+}
+

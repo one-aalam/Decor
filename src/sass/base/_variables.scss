@@ -1,6 +1,6 @@
+
 // Font Stack (BEM naming)
 $font-url--google	: "";
-
 $font-family--primary	: "";
 $font-family--secondary:	"";
 
@@ -43,12 +43,12 @@ $palettes:(
 );
 
 // Text
-$base-font-size: 16px;
-$base-line: 24px;
-
+// Globally determines Site's typographic rhytm...
+$base--font-size: 16px;
+$base--line: 24px;
 
 // Paths
 $path--rel: "../images";
 
-// ==== MediaQuery vars ====
+// Media queries
 
