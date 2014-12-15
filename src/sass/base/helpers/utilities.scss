@@ -1,0 +1,12 @@
+
+// Introspection method to include Google fonts...
+@if variable-exists($font-url--google){
+	@import url($font-url--google);
+}
+
+
+// Accessor method for color palettes
+// Usage: {color: palette(grey, light)}
+@function palette($palette, $shade: 'base'){
+	@return map-get(map-get($palettes, $palette), $shade);
+}
