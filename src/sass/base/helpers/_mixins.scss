@@ -84,6 +84,14 @@
     color: transparent;
 }
 
+@mixin img-replace($path, $width, $height, $display: block){
+	background-image: url($path);
+	background-repeat: no-repeat;
+	width: $width;
+	height: $height;
+	display: $display;
+}
+
 
 
 	
