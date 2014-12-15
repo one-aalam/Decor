@@ -1,0 +1,11 @@
+@mixin bem-e($elm){
+	&__#{#elm}{
+		@content;
+	}
+}
+
+@mixin bem-m($mod){
+	&--#{#mod}{
+		@content;
+	}
+}

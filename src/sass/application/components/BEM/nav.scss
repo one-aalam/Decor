@@ -1,0 +1,49 @@
+// Block: Navigation
+%nav-item-disp{
+	display: inline-block;
+	margin: 0 em(12px);
+}
+%nav-item-link{
+	font-size: em(18px);
+			font-weight: $font-weight--light;
+			color: palette(grey);
+			display:block;
+			padding: em(8px, 18px);
+			border-bottom: 1px solid transparent;
+}
+%nav-item-on{
+	color: palette(black);
+	border: $color-primary;
+}
+.nav{
+	margin-top: em(20px);
+	margin-bottom: em(30px);
+    // Element: Navigation Item
+	@include bem-e(item) { // becomes [parent]__item
+		@extend %nav-item-disp;
+		a{
+			@extend %nav-item-link;
+			color: palette(grey);
+			&:hover{
+				@extend %nav-item-on;
+			}
+		}
+		// Modifier
+		@include bem-m(current){ // becomes [parent]--current
+			a{
+				@extend %nav-item-link;
+				@extend %nav-item-on;
+			}
+		} 
+	}
+}
+
+
+/*
+
+ <ul class="nav" role="navigation">
+	<li class="nav__item"><a href="#">one</a></li>
+	<li class="nav__item nav__item--current"><a href="#">two</a></li>
+	<li class="nav__item"><a href="#">three</a></li>
+ </ul>
+ */
