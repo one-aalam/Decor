@@ -1,59 +1,83 @@
-
-$tablet-maxwidth: 959px;
-$tablet-minwidth: 768px;
-$phablet-maxwidth: 767px;
-$phablet-minwidth: 480px;
-$phone-maxwidth: 479px;
-
-
-// Box-sizing
+/* BOX SIZING */
 @mixin bs($bs-type: border-box){
 	-webkit-box-sizing: $bs-type;
 	-moz-box-sizing: $bs-type;
 	box-sizing: $bs-type;
 }
 
-// Media Queries
-@mixin MQ($dev-type){
-	/* Smaller than standard 960 (devices and browsers) */
-	@if $dev-type == tablet {
-		@media only screen and (max-width: 959px) {
-			@content;
-		}		
-	}
-	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@else if $dev-type == tablet-downlimit {
-		@media only screen and (min-width: 768px) and (max-width: 959px) {
-			@content;
-		}
-	}
-	/* All Mobile Sizes (devices and browser) */
-	@else if $dev-type == phablet {
-		@media only screen and (max-width: 767px) {
-			@content;
-		}
-	}
-	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@else if $dev-type == phablet-downlimit {
-		@media only screen and (min-width: 480px) and (max-width: 767px) {
-			@content;
-		}
-	}
-	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@else if $dev-type == mobile {
-		@media only screen and (max-width: 479px) {
-			@content;
-		}
-	}
+/* SIZE */
+// Usage: @include size(350px, 350px);
+@mixin size($width, $height) {
+   width: $width;
+   height: $height;
 }
 
-@mixin oval($radius:0,$vendor-prefix:(webkit, moz, o, ms)){
+/* TEXT SHADOW */
+// Usage: @include textshadow(transparency)
+@mixin textshadow($value) {
+   text-shadow: rgba(255, 255, 255, $value) 0 1px 0;
+}
+
+/* SHADOWS */
+// Usage: @include shadow(black, 5px 5px 0px 3px);
+//        or: @include shadow(blue, 2px 3px 2px 2px, inset);
+@mixin shadow($color, $x-y-blur-spread:10px 10px 30px 0px, $inset:false) {
+  @if ($inset == inset) {
+      -moz-box-shadow: inset $x-y-blur-spread $color;
+      -webkit-box-shadow: inset $x-y-blur-spread $color;
+      -o-box-shadow: inset $x-y-blur-spread $color;
+      box-shadow: inset $x-y-blur-spread $color;
+  }
+  @else {
+      -moz-box-shadow: $x-y-blur-spread $color;
+      -webkit-box-shadow: $x-y-blur-spread $color;
+      -o-box-shadow: $x-y-blur-spread $color;
+      box-shadow: $x-y-blur-spread $color;
+  }
+}
+
+/* OPACITY */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+/* BLACK / WHITE OPACITY */
+@function black($opacity) {
+  @return rgba(0,0,0,$opacity);
+}
+@function white($opacity) {
+  @return rgba(255,255,255,$opacity);
+}
+
+/* POSITION */
+// Usage: @include position(absolute, 10px, null, 10px, 10px);
+@mixin position($type,$left,$right,$top,$bottom) {
+  position: $type;
+  left: $left;
+  right: $right;
+  top: $top;
+  bottom: $bottom;
+}
+
+/* RADIUS */
+// Usage: @include radius(.5);
+@mixin radius($radius:0,$vendor-prefix:(webkit, moz, o, ms)){
 	@each $vendor in $vendor-prefix{
 		-#{$vendor}-border-radius: $radius;
 	}
 	border-radius: $radius;
 }
 
+/* SCALE */
+//Usage: @include scale(2);
+@mixin scale($value) {
+  -ms-transform: scale($value);
+  -webkit-transform: scale($value);
+  transform: scale($value);
+}
+
+/* HIDE TEXT */
+// Usage: @include hide-text;
 @mixin hide-text(){
 	line-height: 0; 
     font-size: 0;

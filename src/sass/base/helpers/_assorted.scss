@@ -1,3 +1,6 @@
+// Repository of re-usable classes for
+// text-alignments, social share icons, image replacements, etc.
+
 $links-ext: (twitter, facebook, in, vcard, skype);
 $text-align: (left, right, center);
 
@@ -6,7 +9,7 @@ $text-align: (left, right, center);
 	height:32px;
 	@each $link in $links-ext{
 		#soc-#{$link}{
-			background: url(icons/#{$link}_dark.png) no-repeat;
+			background: url(icons/#{$link}_inactive.png) no-repeat;
 			&:hover, &:focus{
 				background: url(icons/#{$link}_active.png) no-repeat;
 			}
@@ -39,7 +42,7 @@ $text-align: (left, right, center);
 }
 
 .no-intimation{
--webkit-touch-callout: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: moz-none;

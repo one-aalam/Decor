@@ -1,5 +1,54 @@
+// Font Stack (BEM naming)
+$font-url--google	: "";
 
-// ===== BODY vars =====
-$bg-color: silver; // Silver
+$font-family--primary	: "";
+$font-family--secondary:	"";
+
+$font-weight--thin: 100;
+$font-weight--light: 300;
+$font-weight--medium: 400;
+$font-weight--bold: 700;
+$font-weight--ultrabold: 900;
+
+// Base colors
+// This acts like your repository of colors
+// Use tools like: http://chir.ag/projects/name-that-color/ and http://www.color-hex.com/color-names.html
+// for giving more natural and semantic name to colors
+$white: #FFFFFF;
+$black: #000000;
+$grey: #BEBEBE;
+
+$emerald: #50C878;
+$sunglo: #E16865;
+$coral: #FF7F50;
+
+// Color Palette Modifiers
+// Put palettes and modifiers as illustrated
+// for easy accessibility
+// Usage: access through utilities
+$palettes:(
+	grey:(
+		xx-light: lighten($grey, 43%),
+		x-light: lighten($grey, 35%),
+		light: lighten($grey,	12%),
+		base: $grey,
+		dark: darken($grey, 8%),
+		dark: darken($grey, 16%)
+	),
+	black:(
+		light: lighten($black,	10%),
+		base: $black,
+		dark: darken($black, 10%)
+	)
+);
+
+// Text
+$base-font-size: 16px;
+$base-line: 24px;
+
+
+// Paths
+$path--rel: "../images";
 
 // ==== MediaQuery vars ====
+
