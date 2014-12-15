@@ -10,7 +10,7 @@ $font-weight--medium: 400;
 $font-weight--bold: 700;
 $font-weight--ultrabold: 900;
 
-// Base colors
+// Base colors/ Definition
 // This acts like your repository of colors
 // Use tools like: http://chir.ag/projects/name-that-color/ and http://www.color-hex.com/color-names.html
 // for giving more natural and semantic name to colors
@@ -21,7 +21,17 @@ $grey: #BEBEBE;
 $emerald: #50C878;
 $sunglo: #E16865;
 $coral: #FF7F50;
+$fountain-blue: #56B4BE;
+$scooter: #2EBFD4;
+$purple-mountain: #9678B6;
 
+
+
+// Color usage variables...
+$color-primary: $fountain-blue;
+$color-secondary: $scooter;
+$color-accent: $emerald;
+$color-shadow: rgba($black, .2);
 // Color Palette Modifiers
 // Put palettes and modifiers as illustrated
 // for easy accessibility
@@ -42,6 +52,16 @@ $palettes:(
 	)
 );
 
+// UI Colors
+// Generate buttons, inputs...
+$ui-colors:(
+	default: $black,
+	success: $emerald,
+	error: $sunglo,
+	warning: $coral,
+	info: $purple-mountain
+);
+
 // Text
 // Globally determines Site's typographic rhytm...
 $base--font-size: 16px;
@@ -51,4 +71,4 @@ $base--line: 24px;
 $path--rel: "../images";
 
 // Media queries
-
+// --> Inside Media query mixin

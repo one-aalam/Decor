@@ -11,6 +11,18 @@
 }
 
 // "Em" changer
+// Usage: { property: em(SizeInPx) ... ; }
 @function em($target, $context: $base--font-size){
 	@return ($target/$context) * 1em ;
+}
+
+// Theme helpers
+// Create color consistent buttons, messages, progress bars, etc.
+// Usage: .btn{ @include with-bgcolors($ui-colors);}
+@mixin with-bgcolors($map: $ui-colors){
+	@each $theme, $color in $map {
+		&--#{$theme}{
+			background-color: $color;
+		}
+	}
 }
