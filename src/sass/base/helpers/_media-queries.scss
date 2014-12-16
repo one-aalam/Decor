@@ -3,37 +3,44 @@ $tablet-minwidth: 768px;
 $phablet-maxwidth: 767px;
 $phablet-minwidth: 480px;
 $phone-maxwidth: 479px;
+// better: https://github.com/taupecat/sass-responsive/blob/master/_responsive.scss
 
 // Media Queries
-@mixin MQ($dev-type){
+// Desktop down...
+@mixin media-queries($device){
 	/* Smaller than standard 960 (devices and browsers) */
-	@if $dev-type == tablet {
-		@media only screen and (max-width: 959px) {
+	@if $device == tablet {
+		@media only screen and (max-width: $tablet-maxwidth) {
 			@content;
 		}		
 	}
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@else if $dev-type == tablet-downlimit {
-		@media only screen and (min-width: 768px) and (max-width: 959px) {
+	@else if $device == tablet-downlimit {
+		@media only screen and (min-width: $tablet-minwidth) and (max-width: $tablet-maxwidth) {
 			@content;
 		}
 	}
 	/* All Mobile Sizes (devices and browser) */
-	@else if $dev-type == phablet {
-		@media only screen and (max-width: 767px) {
+	@else if $device == phablet {
+		@media only screen and (max-width: $phablet-maxwidth) {
 			@content;
 		}
 	}
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@else if $dev-type == phablet-downlimit {
-		@media only screen and (min-width: 480px) and (max-width: 767px) {
+	@else if $device == phablet-downlimit {
+		@media only screen and (min-width: $phablet-minwidth) and (max-width: $phablet-maxwidth) {
 			@content;
 		}
 	}
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@else if $dev-type == mobile {
-		@media only screen and (max-width: 479px) {
+	@else if $device == mobile {
+		@media only screen and (max-width: $phone-maxwidth) {
 			@content;
 		}
 	}
+}
+
+// Alias
+@mixin m-q($args...){
+	@include media-queries($args...)
 }

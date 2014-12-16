@@ -63,9 +63,11 @@ $ui-colors:(
 	info: $purple-mountain
 );
 
-// Text
+
 // Globally determines Site's typographic rhytm...
-$base--font-size: 16px;
+// Default font size
+// Important as a context in many calculations, 
+$base--font-size: 16px !default;
 $base--line: 24px;
 
 // Paths
@@ -76,3 +78,7 @@ $path--rel: "../images";
 
 // Font faces
 // --> Inside fonts mixin
+
+
+// Config
+$use-browser-prefixes: true; // Not used
