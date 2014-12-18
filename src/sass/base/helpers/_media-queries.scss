@@ -1,8 +1,21 @@
-$tablet-maxwidth: 959px;
-$tablet-minwidth: 768px;
-$phablet-maxwidth: 767px;
-$phablet-minwidth: 480px;
-$phone-maxwidth: 479px;
+// ================================
+// Variables
+// ================================
+
+$viewport-inc: 1px;
+
+$desktop: 1024px; // change, as you like
+$tablet: 960px;
+$phablet: 768px;
+$phone: 480px;
+// Tablet - 960
+$tablet-maxwidth: $tablet - $viewport-inc;
+$tablet-minwidth: $phablet;
+// Phablet - 768
+$phablet-maxwidth: $phablet - $viewport-inc;
+$phablet-minwidth: $phone;
+// Phone - 480
+$phone-maxwidth: $phone - $viewport-inc;
 // better: https://github.com/taupecat/sass-responsive/blob/master/_responsive.scss
 
 // Media Queries
