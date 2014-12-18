@@ -36,7 +36,7 @@ $color-shadow: rgba($black, .2);
 // Color Palette Modifiers
 // Put palettes and modifiers as illustrated
 // for easy accessibility
-// Usage: access through utilities
+// Usage: access through utilities -> palette(color, variant)
 $palettes:(
 	grey:(
 		xx-light: lighten($grey, 43%),

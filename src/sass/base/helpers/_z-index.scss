@@ -1,0 +1,33 @@
+// Example...
+
+$layers: (
+  bg_image: -3,
+  bg_canvas_full: -2,
+  bg_color: -1,
+  container: 0,
+  blocks: 1,
+  share_icons: 2,
+  scroll_to_top: 3,
+  design_award: 4,
+  modal: 5
+);
+
+@function layer($component){
+	@return map-get($layers, $component);
+}
+
+@mixin layered_as($component){
+	z-index: layer($component);
+}
+@mixin layered{
+	z-index: layer(&);
+}
+
+.container{
+	z-index: layer(container);
+}
+.container__modal{
+	@include layered;
+}
+
+

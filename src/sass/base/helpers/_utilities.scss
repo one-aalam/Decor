@@ -1,0 +1,64 @@
+
+// Introspection method to include Google fonts...
+@if variable-exists($font-url--google){
+	@import url($font-url--google);
+}
+
+// Accessor method for color palettes
+// Usage: {color: palette(grey, light)}
+@function palette($palette, $shade: 'base'){
+	@return map-get(map-get($palettes, $palette), $shade);
+}
+
+// Unit calculation...
+
+// "Em" changer
+// Usage: { property: em(SizeInPx) ... ; }
+@function em($target, $context: $base--font-size){
+	@return ($target/$context) * 1em ;
+}
+
+@function rem($target, $context: $base--font-size){
+	@return ($target/$context) * 1rem ;
+}
+
+@function percent($target, $context){
+	@return percentage($target, $context);
+}
+
+// Theme helpers
+// Create color consistent buttons, messages, progress bars, etc.
+// Usage: .btn{ @include with-bgcolors($ui-colors);}
+@mixin with-bgcolors($map: $ui-colors){
+	@each $theme, $color in $map {
+		&--#{$theme}{
+			background-color: $color;
+		}
+	}
+}
+
+// Pseudo-generators
+%pseudos {
+	display: block;
+	content: '';
+	position: absolute;
+}
+
+@mixin pseudo-el(
+	$el,
+	$el-width: null,
+	$el-height: null
+	){
+
+	@if $el == "before" or $el == "after"{
+		&:#{$el}{
+			@extend %pseudos;
+			width: $el-width;
+			height: $el-height;
+			@content; // to allow more styling attributes...
+		}
+	}
+	@else{
+		@warn "#{$el} is not a valid pseudo-element";
+	}
+}

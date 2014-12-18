@@ -1,0 +1,12 @@
+// Example...
+$icons: (
+  menu: "\fXXX",
+  delete: "\fXXX",
+  search: "\fXXX"
+);
+
+@each $icon, $unicode_value in $icons {
+  .decor-icon-#{$icon}:before {
+    content: $unicode_value;
+  }
+}
