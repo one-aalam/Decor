@@ -5,4 +5,14 @@ $shadows:(
 
 $transition:(
 
-)
+);
+
+// Hover
+// Usage: @include hover(.3s)
+@mixin hover($time, $timing-fn: ease-in-out) {
+  -webkit-transition: all $timing-fn;
+  -o-transition: all $time $timing-fn;
+  -moz-transition: all $time $timing-fn;
+  transition: all $time $timing-fn;
+}
+

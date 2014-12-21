@@ -17,6 +17,7 @@ $phablet-minwidth: $phone;
 // Phone - 480
 $phone-maxwidth: $phone - $viewport-inc;
 // better: https://github.com/taupecat/sass-responsive/blob/master/_responsive.scss
+// http://www.zell-weekeat.com/how-to-write-mobile-first-css/
 
 // Constraints
 $min: min-width;
