@@ -1,0 +1,11 @@
+// Way to create a theme system
+/*
+.module-name {
+  h1 { 
+    @each $theme, $map in $themes {
+      .#{$theme} & {
+        color: map-get($map, color);
+      }
+    }
+  } 
+}*/

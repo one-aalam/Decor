@@ -1,5 +1,7 @@
-*{
-	@include bs;
+*,
+*:before,
+*:after{
+	@include bs; // defaults to `border-box`
 }
 
 body{

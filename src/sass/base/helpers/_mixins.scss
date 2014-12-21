@@ -5,6 +5,13 @@
 	box-sizing: $bs-type;
 }
 
+// Center align 
+@mixin block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* SIZE */
 // Usage: @include size(350px, 350px);
 @mixin size($width, $height) {
@@ -12,10 +19,18 @@
    height: $height;
 }
 
-/* TEXT SHADOW */
-// Usage: @include textshadow(transparency)
-@mixin textshadow($value) {
+/* TEXT */
+// Usage: @include text-shadow(.4)
+@mixin text-shadow($value) {
    text-shadow: rgba(255, 255, 255, $value) 0 1px 0;
+}
+// Usage: @extends text-truncate
+%text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+  display: inline-block;
 }
 
 /* SHADOWS */
@@ -37,6 +52,7 @@
 }
 
 /* OPACITY */
+// Usage: @include opacity(.8)
 @mixin opacity($opacity) {
   opacity: $opacity;
   filter: alpha(opacity=($opacity * 100));
@@ -66,7 +82,50 @@
 		-#{$vendor}-border-radius: $radius;
 	}
 	border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
 }
+
+// Single sided border-radius mixins
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+   border-top-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+     -webkit-border-top-right-radius: $radius;
+     border-top-right-radius: $radius;
+     background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* SCALE */
 //Usage: @include scale(2);
@@ -84,13 +143,7 @@
     color: transparent;
 }
 
-@mixin img-replace($path, $width, $height, $display: block){
-	background-image: url($path);
-	background-repeat: no-repeat;
-	width: $width;
-	height: $height;
-	display: $display;
-}
+
 
 /* CLEARFIX */
 %clearfix{
